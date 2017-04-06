@@ -1,0 +1,141 @@
+<nav class="nav-primary hidden-xs">
+  <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Menu Principal</div>
+  <ul class="nav nav-main" data-ride="collapse">
+    <li class="active">
+      <%= link_to root_path, class: 'auto' do %>
+        <i class="i i-home icon"></i>
+        <span class="font-bold">Bienvenida</span>
+      <% end %>
+    </li>
+    <!-- Catalogos -->
+    <li>
+      <a href="#" class="auto">
+        <span class="pull-right text-muted">
+          <i class="i i-circle-sm-o text"></i>
+          <i class="i i-circle-sm text-active"></i>
+        </span>
+        <i class="i i-docs icon"></i>
+        <span class="font-bold">Catalogos</span>
+      </a>
+      <ul class="nav dk">
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Facultades</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Ciclos Escolares</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Semestre/Cuatrimestre</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Materias</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Maestros</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Alumnos</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Usuarios</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    
+    <!-- Asignaciones -->
+    <li>
+      <a href="#" class="auto">
+        <span class="pull-right text-muted">
+          <i class="i i-circle-sm-o text"></i>
+          <i class="i i-circle-sm text-active"></i>
+        </span>
+        <i class="i i-retweet icon"></i>
+        <span class="font-bold">Asignaciones</span>
+      </a>
+      <ul class="nav dk">
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Maestro - Grupo</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="auto">                                                        
+            <i class="i i-dot"></i> <span>Grupo - Alumno</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    
+    <!-- Calificaciones -->
+    <li>
+      <a href="index.html" class="auto">
+        <i class="i i-tag icon">
+        </i>
+        <span class="font-bold">Calificaciones</span>
+      </a>
+    </li>
+
+    <!-- Asistencia -->
+    <li>
+      <a href="index.html" class="auto">
+        <i class="i i-list icon">
+        </i>
+        <span class="font-bold">Asistencia</span>
+      </a>
+    </li>
+    
+    <!-- Template -->
+    <li>
+      <a href="#" class="auto">
+        <span class="pull-right text-muted">
+          <i class="i i-circle-sm-o text"></i>
+          <i class="i i-circle-sm text-active"></i>
+        </span>
+        <i class="i i-share icon"></i>
+        <span class="font-bold">Template</span>
+      </a>
+      <ul class="nav dk">
+        <li>
+          <%= link_to forms_themes_path do %>
+            <i class="i i-dot"></i> <span>Formularios</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to tables_themes_path do %>
+            <i class="i i-dot"></i> <span>Tablas</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to ui_themes_path do %>
+            <i class="i i-dot"></i> <span>UI</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to widgets_themes_path do %>
+            <i class="i i-dot"></i> <span>Widgets</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to buttons_themes_path do %>
+            <i class="i i-dot"></i> <span>Buttons</span>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>

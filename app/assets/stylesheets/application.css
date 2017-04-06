@@ -18,5 +18,6 @@
  *= require font
  *= require less/app
  *= require bootstrap_calendar
+ *= require chosen
  *= require_self
  */

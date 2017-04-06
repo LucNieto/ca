@@ -27,5 +27,6 @@
 //= require calendar/bootstrap_calendar
 //= require calendar/demo
 //= require sortable/jquery.sortable
+//= require chosen/chosen.jquery.min
 //= require turbolinks
 //= require_tree .
