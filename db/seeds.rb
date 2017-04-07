@@ -1,3 +1,5 @@
+require 'faker'
+include Faker
 
 # Creación de usuario inicial
 User.create!(
