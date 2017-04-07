@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  devise_for :users
+  root 'welcome#index'
+
   resources :themes, only: [:index] do
     collection do # /themes/
       get 'forms'
@@ -10,7 +13,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'interface#index'
+  resources :interface, only: [:index]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
