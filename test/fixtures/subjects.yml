@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group: one
+  nombre_materia: MyString
+  subject_type: 1
+  clave_materia: MyString
+
+two:
+  group: two
+  nombre_materia: MyString
+  subject_type: 1
+  clave_materia: MyString
