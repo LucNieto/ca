@@ -15,6 +15,8 @@ Things you may want to cover:
 * Database creation
   - rake db:create
   - rake db:migrate
+  Despues de haber creado la base, sera necesario ejecutar algunos seeders
+  heroku run rake db:seed --trace
 * Database initialization
   Crear el archivo config/application.yml y especificar
     DB_USERNAME: ""
