@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  faculty: one
+  nombre_carrera: MyString
+  nombre_abbr: MyString
+
+two:
+  faculty: two
+  nombre_carrera: MyString
+  nombre_abbr: MyString
