@@ -42,6 +42,14 @@ class Cat::SchoolCyclesController < ApplicationController
     end
   end
 
+  def destroy
+    @school_cycle.destroy
+    respond_to do |format|
+      format.html { redirect_to cat_school_cycles_path, notice: 'El ciclo escolar ha sido eliminado' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def set_school_cycle
       @school_cycle = SchoolCycle.find params[:id]
