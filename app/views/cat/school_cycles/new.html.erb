@@ -10,6 +10,10 @@
       
       <!-- Body -->
       <div class="panel-body">
+        <div class="row wrapper pull-right">
+          <%= link_to '<i class="fa fa-chevron-left"></i>'.html_safe, cat_school_cycles_path, class: 'btn btn-sm btn-icon btn-default' %>
+        </div>
+        <div class="clearfix"></div>
         <%= render 'form'  %>
       </div>
       

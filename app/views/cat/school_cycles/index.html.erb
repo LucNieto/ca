@@ -32,7 +32,7 @@
                       <i class="fa fa-eye"></i>
                     <% end %>
                     <!-- Boton editar -->
-                    <%= link_to edit_cat_school_cycle(item) do %>
+                    <%= link_to edit_cat_school_cycle_path(item) do %>
                       <i class="fa fa-pencil text-success"></i>
                     <% end %>
                     <!-- Boton eliminar -->
@@ -40,7 +40,7 @@
                       <i class="fa fa-trash-o text-danger"></i>
                     <% end %>
                   </td>
-                  <td><%= sc.nombre_ciclo %></td>
+                  <td><%= item.nombre_ciclo %></td>
                 </tr>
               <% end %>
             </tbody>
