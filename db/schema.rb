@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407205414) do
+ActiveRecord::Schema.define(version: 20170408035240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20170407205414) do
     t.string   "clave_grupo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "school_cycles", force: :cascade do |t|
+    t.integer  "career_id"
+    t.string   "nombre_ciclo"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["career_id"], name: "index_school_cycles_on_career_id", using: :btree
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -68,5 +76,6 @@ ActiveRecord::Schema.define(version: 20170407205414) do
   end
 
   add_foreign_key "careers", "faculties"
+  add_foreign_key "school_cycles", "careers"
   add_foreign_key "subjects", "groups"
 end

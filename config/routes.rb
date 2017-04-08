@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   root 'welcome#index'
 
@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :interface, only: [:index]
+
+  namespace :cat do
+    resources :school_cycles
+  end
 
 end
