@@ -1,0 +1,40 @@
+<div class="m-b-md">
+  <h3 class="m-b-none">Ciclos Escolares</h3>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <section class="panel panel-default">
+      <!-- Encabezado -->
+      <header class="panel-heading">Información</header>
+      
+      <div class="panel-body">
+        <div class="row wrapper pull-right">
+          <%= link_to '<i class="fa fa-chevron-left"></i>'.html_safe, cat_school_cycles_path, class: 'btn btn-sm btn-icon btn-default' %>
+          <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_cat_school_cycle_path(@school_cycle), class: 'btn btn-sm btn-icon btn-success' %>
+          <%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_cat_school_cycle_path, class: 'btn btn-sm btn-icon btn-primary' %>
+          <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, cat_school_cycle_path(@school_cycle), method: :delete, data: { confirm: 'Estas seguro de eliminar este elemento?' }, class: 'btn btn-sm btn-icon btn-danger' %>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <table class="table table-stripped m-b-none">
+        <tbody>
+          <tr>
+            <th width="20%">Facultad</th>
+            <td><%= @school_cycle.career.faculty.nombre_facultad %></td>
+          </tr>
+          <tr>
+            <th>Carrera</th>
+            <td><%= @school_cycle.career.nombre_carrera %></td>
+          </tr>
+          <tr>
+            <th>Ciclo Escolar</th>
+            <td><%= @school_cycle.nombre_ciclo %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+</div>

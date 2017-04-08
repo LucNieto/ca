@@ -1,0 +1,2 @@
+module Cat::SchoolCyclesHelper
+end
