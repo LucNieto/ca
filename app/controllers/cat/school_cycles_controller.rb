@@ -15,7 +15,7 @@ class Cat::SchoolCyclesController < ApplicationController
 
     respond_to do |format|
       if @school_cycle.save
-        format.html { redirect_to [ "cat", @school_cycle ], notice: 'El ciclo ha sido creado' }
+        format.html { redirect_to [ "cat", @school_cycle ], notice: 'El ciclo escolar ha sido creado' }
         format.json { render :show, status: :created, location: @school_cycle }
       else
         format.html { render :new }
@@ -30,11 +30,23 @@ class Cat::SchoolCyclesController < ApplicationController
   def edit
   end
 
+  def update
+    respond_to do |format|
+      if @school_cycle.update(school_cycle_params)
+        format.html { redirect_to [ "cat", @school_cycle ], notice: 'El ciclo escolar ha sido actualizado' }
+        format.json { render :show, status: :ok, location: @school_cycle }
+      else
+        format.html { render :edit }
+        foramt.json { render json: @school_cycle.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     def set_school_cycle
       @school_cycle = SchoolCycle.find params[:id]
     end
-    
+
     def school_cycle_params
       params.require(:school_cycle).permit(:career_id, :nombre_ciclo)
     end
