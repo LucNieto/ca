@@ -6,6 +6,7 @@ class Cat::SchoolCyclesController < ApplicationController
   end
 
   def new
+    @school_cycle = SchoolCycle.new
   end
 
   def show
