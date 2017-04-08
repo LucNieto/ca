@@ -1,5 +1,6 @@
 class Cat::SchoolCyclesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_school_cycle, only:[ :show, :edit, :update, :destroy ]
 
   def index
     @school_cycles = SchoolCycle.all
@@ -30,6 +31,10 @@ class Cat::SchoolCyclesController < ApplicationController
   end
 
   private
+    def set_school_cycle
+      @school_cycle = SchoolCycle.find params[:id]
+    end
+    
     def school_cycle_params
       params.require(:school_cycle).permit(:career_id, :nombre_ciclo)
     end
