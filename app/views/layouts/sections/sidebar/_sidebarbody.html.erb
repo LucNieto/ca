@@ -19,13 +19,18 @@
       </a>
       <ul class="nav dk">
         <li>
-          <a href="#" class="auto">                                                        
+          <a href="#" class="auto">
             <i class="i i-dot"></i> <span>Facultades</span>
           </a>
         </li>
         <li>
+          <%= link_to cat_periods_path, class: 'auto' do %>
+            <i class="i i-dot"></i> <span>Periodos</span>
+          <% end %>
+        </li>
+        <li>
           <%= link_to cat_school_cycles_path, class: 'auto' do %>
-            <i class="i i-dot"></i> <span>Ciclos Escolares</span>
+              <i class="i i-dot"></i> <span>Ciclos Escolares</span>
           <% end %>
         </li>
         <li>
