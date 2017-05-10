@@ -1,0 +1,82 @@
+<div class="m-b-md">
+  <h3 class="m-b-none">Maestros</h3>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <section class="panel panel-default">
+      <!-- Encabezado -->
+      <header class="panel-heading">listado</header>
+
+      <section class="panel-body">
+        <div class="row wrapper">
+          <%= link_to 'Nuevo Elemento', new_cat_teacher_path, class: 'btn btn-s-md btn-primary' %>
+        </div>
+
+        <% if @teachers.present? %>
+
+            <!-- Tabla -->
+            <table class="table table-stripped m-b-none">
+              <thead>
+              <tr>
+                <th width="120px" class="text-center">Opciones</th>
+                <th>Nombre</th>
+                <th>Apellido paterno</th>
+                <th>Apellido materno</th>
+                <th>Grado</th>
+                <th>Correo electronico</th>
+                <th>Telefono</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @teachers.each do |teacher| %>
+                  <tr>
+                    <td class="text-center">
+                      <!-- Boton editar -->
+                      <%= link_to cat_teacher_path(teacher) do %>
+                          <i class="fa fa-eye"></i>
+                      <% end %>
+                      <!-- Boton editar -->
+                      <%= link_to edit_cat_teacher_path(teacher) do %>
+                          <i class="fa fa-pencil text-success"></i>
+                      <% end %>
+                      <!-- Boton eliminar -->
+                      <%= link_to cat_teacher_path(teacher), method: :delete, data: { confirm: 'Estas seguro de eliminar este elemento?' } do %>
+                          <i class="fa fa-trash-o text-danger"></i>
+                      <% end %>
+                    </td>
+                    <td><%= teacher.nombre %></td>
+                    <td><%= teacher.apellido_paterno %></td>
+                    <td><%= teacher.apellido_materno %></td>
+                    <td><%= teacher.grado %></td>
+                    <td><%= teacher.correo_electronico %></td>
+                    <td><%= teacher.telefono %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+
+        <% else %>
+
+            <!-- Alert informativo -->
+            <div class="alert alert-info fade in alert-dismissable">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+              <strong>Info!</strong> Aun no existen elementos en la base de datos para ser mostrados.
+            </div>
+
+        <% end %>
+      </section>
+    </section>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
