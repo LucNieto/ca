@@ -57,7 +57,7 @@ class Cat::PeriodsController < ApplicationController
   def destroy
     @period.destroy
     respond_to do |format|
-      format.html { redirect_to cat_periods_path, notice: 'Period was successfully destroyed.' }
+      format.html { redirect_to cat_periods_path, notice: 'El periodo ha sido eliminado.' }
       format.json { head :no_content }
     end
   end
