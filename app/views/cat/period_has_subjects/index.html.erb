@@ -33,7 +33,7 @@
         <td><%= period_has_subject.sabado %></td>
         <td><%= period_has_subject.horario_clases %></td>
         <td><%= link_to 'Show', period_has_subject %></td>
-        <td><%= link_to 'Edit', edit_period_has_subject_path(period_has_subject) %></td>
+        <td><%= link_to 'Edit', edit_cat_period_has_subject_path(period_has_subject) %></td>
         <td><%= link_to 'Destroy', period_has_subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Period Has Subject', new_period_has_subject_path %>
+<%= link_to 'New Period Has Subject', new_cat_period_has_subject_path %>

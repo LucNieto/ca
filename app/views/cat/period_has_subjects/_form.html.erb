@@ -1,4 +1,4 @@
-<%= form_for(period_has_subject) do |f| %>
+<%= form_for(['cat',period_has_subject]) do |f| %>
   <% if period_has_subject.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(period_has_subject.errors.count, "error") %> prohibited this period_has_subject from being saved:</h2>

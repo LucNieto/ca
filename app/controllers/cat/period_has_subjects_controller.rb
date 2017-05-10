@@ -1,4 +1,5 @@
-class PeriodHasSubjectsController < ApplicationController
+class Cat::PeriodHasSubjectsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_period_has_subject, only: [:show, :edit, :update, :destroy]
 
   # GET /period_has_subjects
@@ -28,7 +29,7 @@ class PeriodHasSubjectsController < ApplicationController
 
     respond_to do |format|
       if @period_has_subject.save
-        format.html { redirect_to @period_has_subject, notice: 'Period has subject was successfully created.' }
+        format.html { redirect_to ["cat",@period_has_subject], notice: 'Period has subject was successfully created.' }
         format.json { render :show, status: :created, location: @period_has_subject }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class PeriodHasSubjectsController < ApplicationController
   def update
     respond_to do |format|
       if @period_has_subject.update(period_has_subject_params)
-        format.html { redirect_to @period_has_subject, notice: 'Period has subject was successfully updated.' }
+        format.html { redirect_to ["cat",@period_has_subject], notice: 'Period has subject was successfully updated.' }
         format.json { render :show, status: :ok, location: @period_has_subject }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class PeriodHasSubjectsController < ApplicationController
   def destroy
     @period_has_subject.destroy
     respond_to do |format|
-      format.html { redirect_to period_has_subjects_url, notice: 'Period has subject was successfully destroyed.' }
+      format.html { redirect_to cat_period_has_subjects_path, notice: 'Period has subject was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

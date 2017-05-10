@@ -47,7 +47,7 @@ class Cat::TeachersController < ApplicationController
         format.json { render :show, status: :ok, location: @teacher }
       else
         format.html { render :edit }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
+        format.json { render  status: :unprocessable_entity }
       end
     end
   end
