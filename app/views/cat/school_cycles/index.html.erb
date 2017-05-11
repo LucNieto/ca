@@ -27,7 +27,7 @@
               <% @school_cycles.each do |item| %>
                 <tr>
                   <td class="text-center">
-                    <!-- Boton editar -->
+                    <!-- Boton mostrar -->
                     <%= link_to cat_school_cycle_path(item) do %>
                       <i class="fa fa-eye"></i>
                     <% end %>
@@ -36,7 +36,7 @@
                       <i class="fa fa-pencil text-success"></i>
                     <% end %>
                     <!-- Boton eliminar -->
-                    <%= link_to cat_school_cycle_path(item), method: :delete, data: { confirm: 'Estas seguro de eliminar este elemento?' } do %>
+                    <%= link_to cat_school_cycle_path(item), method: :delete, data: { confirm: '¿Estas seguro de eliminar este elemento?' } do %>
                       <i class="fa fa-trash-o text-danger"></i>
                     <% end %>
                   </td>
