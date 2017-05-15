@@ -19,31 +19,29 @@
       </a>
       <ul class="nav dk">
         <li>
-          <a href="#" class="auto">                                                        
+          <a href="#" class="auto">
             <i class="i i-dot"></i> <span>Facultades</span>
           </a>
         </li>
         <li>
           <%= link_to cat_school_cycles_path, class: 'auto' do %>
-            <i class="i i-dot"></i> <span>Ciclos Escolares</span>
+              <i class="i i-dot"></i> <span>Ciclos Escolares</span>
           <% end %>
         </li>
         <li>
-          <a href="#" class="auto">                                                        
-            <i class="i i-dot"></i> <span>Semestre/Cuatrimestre</span>
-          </a>
+            <%= link_to cat_periods_path, class: 'auto' do %>
+              <i class="i i-dot"></i> <span>Semestre/Cuatrimestre</span>
+            <% end %>
         </li>
         <li>
-          <a href="#" class="auto">                                                        
+          <a href="#" class="auto">
             <i class="i i-dot"></i> <span>Materias</span>
           </a>
         </li>
         <li>
-          <a href="#" class="auto">
             <%= link_to cat_teachers_path, class: 'auto' do %>
                 <i class="i i-dot"></i> <span>Maestros</span>
-            <% end %>
-          </a>
+            <% end %>S
         </li>
         <li>
           <a href="#" class="auto">                                                        
@@ -137,7 +135,5 @@
           <% end %>
         </li>
       </ul>
-    </li>
-
   </ul>
 </nav>

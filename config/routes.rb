@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   devise_for :users
   root 'welcome#index'
 
@@ -19,6 +20,6 @@ Rails.application.routes.draw do
     resources :school_cycles
     resources :teachers
     resources :period_has_subjects
+    resources :periods
   end
-
 end

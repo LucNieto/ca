@@ -1,0 +1,31 @@
+<%= form_for(['cat',@period], html: { class: 'form-horizontal' }) do |f| %>
+
+    <%= render 'partials/error_messages', object: @period %>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Ciclo</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+      <%= f.select :school_cycle_id, SchoolCycle.all.map{ |sc| [sc.nombre_ciclo, sc.id]}, { prompt: '- Seleccionar -' },class: 'form-control'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Periodo</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :nombre_periodo, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Tipo de periodo</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :period_type, Period.period_types.keys.to_a, { prompt: '- Seleccionar -' }, class: 'form-control' %>
+      </div>
+    </div>
+
+
+    <div class="pull-right">
+      <%= f.submit nil, class: 'btn btn-sm btn-primary' %>
+    </div>
+    <div class="clearfix"></div>
+<% end %>
