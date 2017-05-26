@@ -1,7 +1,7 @@
-class CreatePeriodHasSubjects < ActiveRecord::Migration[5.0]
+class CreateSchoolCycleHasSubjects < ActiveRecord::Migration[5.0]
   def change
-    create_table :period_has_subjects do |t|
-      t.references :period, foreign_key: true
+    create_table :school_cycle_has_subjects do |t|
+      t.references :school_cycle, foreign_key: true
       t.references :teacher, foreign_key: true
       t.references :subject, foreign_key: true
       t.boolean :lunes

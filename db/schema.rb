@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170419213808) do
+ActiveRecord::Schema.define(version: 20170525015142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,9 +36,17 @@ ActiveRecord::Schema.define(version: 20170419213808) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "periods", force: :cascade do |t|
+    t.integer  "school_cycle_id"
+    t.string   "nombre_periodo"
+    t.integer  "period_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["school_cycle_id"], name: "index_periods_on_school_cycle_id", using: :btree
+  end
 
-  create_table "period_has_subjects", force: :cascade do |t|
-    t.integer  "period_id"
+  create_table "school_cycle_has_subjects", force: :cascade do |t|
+    t.integer  "school_cycle_id"
     t.integer  "teacher_id"
     t.integer  "subject_id"
     t.boolean  "lunes"
@@ -49,20 +56,11 @@ ActiveRecord::Schema.define(version: 20170419213808) do
     t.boolean  "viernes"
     t.boolean  "sabado"
     t.string   "horario_clases"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["period_id"], name: "index_period_has_subjects_on_period_id", using: :btree
-    t.index ["subject_id"], name: "index_period_has_subjects_on_subject_id", using: :btree
-    t.index ["teacher_id"], name: "index_period_has_subjects_on_teacher_id", using: :btree
-  end
-
-  create_table "periods", force: :cascade do |t|
-    t.integer  "school_cycle_id"
-    t.string   "nombre_periodo"
-    t.integer  "period_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["school_cycle_id"], name: "index_periods_on_school_cycle_id", using: :btree
+    t.index ["school_cycle_id"], name: "index_school_cycle_has_subjects_on_school_cycle_id", using: :btree
+    t.index ["subject_id"], name: "index_school_cycle_has_subjects_on_subject_id", using: :btree
+    t.index ["teacher_id"], name: "index_school_cycle_has_subjects_on_teacher_id", using: :btree
   end
 
   create_table "school_cycles", force: :cascade do |t|
@@ -116,10 +114,10 @@ ActiveRecord::Schema.define(version: 20170419213808) do
   end
 
   add_foreign_key "careers", "faculties"
-  add_foreign_key "period_has_subjects", "periods"
-  add_foreign_key "period_has_subjects", "subjects"
-  add_foreign_key "period_has_subjects", "teachers"
   add_foreign_key "periods", "school_cycles"
+  add_foreign_key "school_cycle_has_subjects", "school_cycles"
+  add_foreign_key "school_cycle_has_subjects", "subjects"
+  add_foreign_key "school_cycle_has_subjects", "teachers"
   add_foreign_key "school_cycles", "careers"
   add_foreign_key "subjects", "groups"
 end

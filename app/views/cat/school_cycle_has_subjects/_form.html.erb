@@ -1,0 +1,78 @@
+<%= form_for(['cat',@school_cycle_has_subject], html: { class: 'form-horizontal' }) do |f| %>
+    <%= render 'partials/error_messages', object: @school_cycle_has_subject %>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Horario de clases</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :horario_clases, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Ciclo</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :school_cycle_id, SchoolCycle.all.map{ |sc| [sc.nombre_ciclo, sc.id]}, { prompt: '- Seleccionar -' },class: 'form-control'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Maestro</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :teacher_id, Teacher.all.map{ |sc| [sc.nombre, sc.id]}, { prompt: '- Seleccionar -' },class: 'form-control'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Materia</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :subject_id, Subject.all.map{ |sc| [sc.nombre_materia, sc.id]}, { prompt: '- Seleccionar -' },class: 'form-control'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Lunes</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.check_box :lunes, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Martes</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.check_box :martes, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Miercoles</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.check_box :miercoles, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Jueves</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.check_box :jueves, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Viernes</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.check_box :viernes, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Sabado</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.check_box :sabado, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="pull-right">
+      <%= f.submit nil, class: 'btn btn-sm btn-primary' %>
+    </div>
+    <div class="clearfix"></div>
+<% end %>
