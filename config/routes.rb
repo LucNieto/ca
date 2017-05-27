@@ -16,9 +16,12 @@ Rails.application.routes.draw do
   resources :interface, only: [:index]
 
   namespace :cat do
-    resources :school_cycle_has_subjects
     resources :school_cycles
     resources :teachers
     resources :periods
+  end
+
+  namespace :asig do
+    resources :school_cycle_has_subjects
   end
 end

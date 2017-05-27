@@ -1,4 +1,4 @@
-<%= form_for(['cat',@school_cycle_has_subject], html: { class: 'form-horizontal' }) do |f| %>
+<%= form_for(['asig',@school_cycle_has_subject], html: { class: 'form-horizontal' }) do |f| %>
     <%= render 'partials/error_messages', object: @school_cycle_has_subject %>
 
     <div class="form-group">
@@ -11,7 +11,7 @@
     <div class="form-group">
       <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Ciclo</label>
       <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
-        <%= f.select :school_cycle_id, SchoolCycle.all.map{ |sc| [sc.nombre_ciclo, sc.id]}, { prompt: '- Seleccionar -' },class: 'form-control'  %>
+        <%= f.select :school_cycle_id, SchoolCycle.all.map{ |sc| ["#{sc.nombre_ciclo} - #{sc.career.nombre_carrera}", sc.id]}, { prompt: '- Seleccionar -' },class: 'form-control'  %>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-group">
-      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Miercoles</label>
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Miércoles</label>
       <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
         <%= f.check_box :miercoles, autofocus: true %>
       </div>
@@ -65,7 +65,7 @@
     </div>
 
     <div class="form-group">
-      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Sabado</label>
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Sábado</label>
       <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
         <%= f.check_box :sabado, autofocus: true %>
       </div>

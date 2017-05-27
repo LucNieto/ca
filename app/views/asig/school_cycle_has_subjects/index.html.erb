@@ -10,7 +10,7 @@
 
       <section class="panel-body">
         <div class="row wrapper">
-          <%= link_to 'Nuevo Elemento', new_cat_school_cycle_has_subject_path, class: 'btn btn-s-md btn-primary' %>
+          <%= link_to 'Nuevo Elemento', new_asig_school_cycle_has_subject_path, class: 'btn btn-s-md btn-primary' %>
         </div>
 
         <% if @school_cycle_has_subjects.present? %>
@@ -23,12 +23,12 @@
                 <th>Ciclo escolar</th>
                 <th>Maestro</th>
                 <th>Materia</th>
-                <th>Lunes</th>
-                <th>Martes</th>
-                <th>Miércoles</th>
-                <th>Jueves</th>
-                <th>Viernes</th>
-                <th>Sábado</th>
+                <th>L</th>
+                <th>Ma</th>
+                <th>Mi</th>
+                <th>J</th>
+                <th>V</th>
+                <th>S</th>
                 <th>Horario</th>
               </tr>
               </thead>
@@ -37,27 +37,27 @@
                   <tr>
                     <td class="text-center">
                       <!-- Boton mostrar -->
-                      <%= link_to cat_school_cycle_has_subject_path(school_cycle_has_subject) do %>
+                      <%= link_to asig_school_cycle_has_subject_path(school_cycle_has_subject) do %>
                           <i class="fa fa-eye"></i>
                       <% end %>
                       <!-- Boton editar -->
-                      <%= link_to edit_cat_school_cycle_has_subject_path(school_cycle_has_subject) do %>
+                      <%= link_to edit_asig_school_cycle_has_subject_path(school_cycle_has_subject) do %>
                           <i class="fa fa-pencil text-success"></i>
                       <% end %>
                       <!-- Boton eliminar -->
-                      <%= link_to cat_school_cycle_has_subject_path(school_cycle_has_subject), method: :delete, data: { confirm: '¿Estas seguro de eliminar este elemento?' } do %>
+                      <%= link_to asig_school_cycle_has_subject_path(school_cycle_has_subject), method: :delete, data: { confirm: '¿Estas seguro de eliminar este elemento?' } do %>
                           <i class="fa fa-trash-o text-danger"></i>
                       <% end %>
                     </td>
                     <td><%= school_cycle_has_subject.school_cycle.nombre_ciclo %></td>
                     <td><%= school_cycle_has_subject.teacher.nombre %></td>
                     <td><%= school_cycle_has_subject.subject.nombre_materia %></td>
-                    <%if school_cycle_has_subject.lunes === true %>    <td><%= 'Si' %></td> <% else %> <td><%= 'No' %><%end%>
-                    <%if school_cycle_has_subject.martes === true %>   <td><%= 'Si' %></td>  <% else %> <td><%= 'No' %><%end%>
-                    <%if school_cycle_has_subject.miercoles === true %><td><%= 'Si' %></td> <% else %> <td><%= 'No' %><%end%>
-                    <%if school_cycle_has_subject.jueves === true %>   <td><%= 'Si' %></td> <% else %> <td><%= 'No' %><%end%>
-                    <%if school_cycle_has_subject.viernes === true %>  <td><%= 'Si' %></td> <% else %> <td><%= 'No' %><%end%>
-                    <%if school_cycle_has_subject.sabado === true %>   <td><%= 'Si' %></td> <% else %> <td><%= 'No' %><%end%>
+                    <td><%=raw school_cycle_has_subject.lunes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+                    <td><%=raw school_cycle_has_subject.martes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+                    <td><%=raw school_cycle_has_subject.miercoles ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+                    <td><%=raw school_cycle_has_subject.jueves ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+                    <td><%=raw school_cycle_has_subject.viernes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+                    <td><%=raw school_cycle_has_subject.sabado ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
                     <td><%= school_cycle_has_subject.horario_clases %></td>
                   </tr>
               <% end %>

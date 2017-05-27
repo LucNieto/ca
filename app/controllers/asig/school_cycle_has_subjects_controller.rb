@@ -1,4 +1,4 @@
-class Cat::SchoolCycleHasSubjectsController < ApplicationController
+class Asig::SchoolCycleHasSubjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_school_cycle_has_subject, only: [:show, :edit, :update, :destroy]
 
@@ -29,7 +29,7 @@ class Cat::SchoolCycleHasSubjectsController < ApplicationController
 
     respond_to do |format|
       if @school_cycle_has_subject.save
-        format.html { redirect_to ["cat",@school_cycle_has_subject], notice: 'La relacion maestro-grupo ha sido creada' }
+        format.html { redirect_to ["asig",@school_cycle_has_subject], notice: 'La relacion maestro-grupo ha sido creada' }
         format.json { render :show, status: :created, location: @school_cycle_has_subject }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Cat::SchoolCycleHasSubjectsController < ApplicationController
   def update
     respond_to do |format|
       if @school_cycle_has_subject.update(school_cycle_has_subject_params)
-        format.html { redirect_to ["cat",@school_cycle_has_subject], notice: 'School cycle has subject was successfully updated.' }
+        format.html { redirect_to ["asig",@school_cycle_has_subject], notice: 'School cycle has subject was successfully updated.' }
         format.json { render :show, status: :ok, location: @school_cycle_has_subject }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class Cat::SchoolCycleHasSubjectsController < ApplicationController
   def destroy
     @school_cycle_has_subject.destroy
     respond_to do |format|
-      format.html { redirect_to cat_school_cycle_has_subjects_path, notice: 'School cycle has subject was successfully destroyed.' }
+      format.html { redirect_to asig_school_cycle_has_subjects_path, notice: 'School cycle has subject was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
