@@ -28,7 +28,7 @@ class Cat::StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to ["cat",@student], notice: 'Student was successfully created.' }
+        format.html { redirect_to ["cat",@student], notice: 'El alumno ha sido creado exitosamente!' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Cat::StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to ["cat",@student], notice: 'Student was successfully updated.' }
+        format.html { redirect_to ["cat",@student], notice: 'El alumno ha sido actualizado exitosamente!' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class Cat::StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:matricula, :nombre, :allido_paterno, :apellido_materno, :correo_electronico, :direccion, :telefono, :nombre_tutor, :telefono_tutor, :correo_tutor)
+      params.require(:student).permit(:matricula, :nombre, :apellido_paterno, :apellido_materno, :correo_electronico, :direccion, :telefono, :nombre_tutor, :telefono_tutor, :correo_tutor)
     end
 end

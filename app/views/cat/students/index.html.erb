@@ -1,57 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Students</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Matricula</th>
-      <th>Nombre</th>
-      <th>Allido paterno</th>
-      <th>Apellido materno</th>
-      <th>Correo electronico</th>
-      <th>Direccion</th>
-      <th>Telefono</th>
-      <th>Nombre tutor</th>
-      <th>Telefono tutor</th>
-      <th>Correo tutor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.matricula %></td>
-        <td><%= student.nombre %></td>
-        <td><%= student.allido_paterno %></td>
-        <td><%= student.apellido_materno %></td>
-        <td><%= student.correo_electronico %></td>
-        <td><%= student.direccion %></td>
-        <td><%= student.telefono %></td>
-        <td><%= student.nombre_tutor %></td>
-        <td><%= student.telefono_tutor %></td>
-        <td><%= student.correo_tutor %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= link_to 'New Student', new_student_path %>
-
-
-
-
-
-
-
-
-
-
-
 <div class="m-b-md">
   <h3 class="m-b-none">Alumnos</h3>
 </div>
@@ -95,15 +41,24 @@
                           <i class="fa fa-eye"></i>
                       <% end %>
                       <!-- Boton editar -->
-                      <%= link_to edit_cat_school_cycle_path(item) do %>
+                      <%= link_to edit_cat_student_path(item) do %>
                           <i class="fa fa-pencil text-success"></i>
                       <% end %>
                       <!-- Boton eliminar -->
-                      <%= link_to cat_school_cycle_path(item), method: :delete, data: { confirm: '¿Estas seguro de eliminar este elemento?' } do %>
+                      <%= link_to cat_student_path(item), method: :delete, data: { confirm: '¿Estas seguro de eliminar este elemento?' } do %>
                           <i class="fa fa-trash-o text-danger"></i>
                       <% end %>
                     </td>
-                    <td><%= item.nombre_ciclo %></td>
+                    <td><%= item.matricula %></td>
+                    <td><%= item.nombre %></td>
+                    <td><%= item.apellido_paterno %></td>
+                    <td><%= item.apellido_materno %></td>
+                    <td><%= item.correo_electronico %></td>
+                    <td><%= item.direccion %></td>
+                    <td><%= item.telefono %></td>
+                    <td><%= item.nombre_tutor %></td>
+                    <td><%= item.telefono_tutor %></td>
+                    <td><%= item.correo_tutor %></td>
                   </tr>
               <% end %>
               </tbody>
