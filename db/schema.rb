@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525015142) do
+ActiveRecord::Schema.define(version: 20170526202227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,21 @@ ActiveRecord::Schema.define(version: 20170525015142) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["career_id"], name: "index_school_cycles_on_career_id", using: :btree
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "matricula"
+    t.string   "nombre"
+    t.string   "apellido_paterno"
+    t.string   "apellido_materno"
+    t.string   "correo_electronico"
+    t.string   "direccion"
+    t.string   "telefono"
+    t.string   "nombre_tutor"
+    t.string   "telefono_tutor"
+    t.string   "correo_tutor"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "subjects", force: :cascade do |t|

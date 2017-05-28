@@ -1,0 +1,67 @@
+<div class="m-b-md">
+  <h3 class="m-b-none">Alumnos</h3>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <section class="panel panel-default">
+      <!-- Encabezado -->
+      <header class="panel-heading">listado</header>
+
+      <section class="panel-body">
+        <div class="row wrapper">
+          <%= link_to 'Nuevo Elemento', new_cat_student_path, class: 'btn btn-s-md btn-primary' %>
+        </div>
+
+        <% if @students.present? %>
+
+            <!-- Tabla -->
+            <table class="table table-stripped m-b-none">
+              <thead>
+              <tr>
+                <th width="120px" class="text-center">Opciones</th>
+                <th>Matrícula</th>
+                <th>Nombre de estudiante</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @students.each do |item| %>
+                  <tr>
+                    <td class="text-center">
+                      <!-- Boton mostrar -->
+                      <%= link_to cat_student_path(item) do %>
+                          <i class="fa fa-eye"></i>
+                      <% end %>
+                      <!-- Boton editar -->
+                      <%= link_to edit_cat_student_path(item) do %>
+                          <i class="fa fa-pencil text-success"></i>
+                      <% end %>
+                      <!-- Boton eliminar -->
+                      <%= link_to cat_student_path(item), method: :delete, data: { confirm: '¿Estas seguro de eliminar este elemento?' } do %>
+                          <i class="fa fa-trash-o text-danger"></i>
+                      <% end %>
+                    </td>
+                    <td><%= item.matricula %></td>
+                    <td><%= item.nombre_completo %></td>
+                    <td><%= item.correo_electronico %></td>
+                    <td><%= item.telefono %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+
+        <% else %>
+
+            <!-- Alert informativo -->
+            <div class="alert alert-info fade in alert-dismissable">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+              <strong>Info!</strong> Aun no existen elementos en la base de datos para ser mostrados.
+            </div>
+
+        <% end %>
+      </section>
+    </section>
+  </div>
+</div>

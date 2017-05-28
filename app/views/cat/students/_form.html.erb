@@ -1,0 +1,77 @@
+<%= form_for( [ 'cat', @student ], html: { class: 'form-horizontal' }) do |f| %>
+    <%= render 'partials/error_messages', object: @student %>
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Matrícula</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :matricula, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Nombre</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :nombre, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Apellido Paterno</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :apellido_paterno, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Apellido Materno</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :apellido_materno, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Email</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :correo_electronico, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Dirección</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :direccion, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Teléfono</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :telefono, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Tutor</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :nombre_tutor, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Teléfono del tutor</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :telefono_tutor, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Email del tutor</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :correo_tutor, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="pull-right">
+      <%= f.submit nil, class: 'btn btn-sm btn-primary' %>
+    </div>
+    <div class="clearfix"></div>
+<% end %>

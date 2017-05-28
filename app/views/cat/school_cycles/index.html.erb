@@ -1,20 +1,16 @@
 <div class="m-b-md">
   <h3 class="m-b-none">Ciclos Escolares</h3>
 </div>
-
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <section class="panel panel-default">
       <!-- Encabezado -->
       <header class="panel-heading">listado</header>
-      
       <section class="panel-body">
         <div class="row wrapper">
           <%= link_to 'Nuevo Elemento', new_cat_school_cycle_path, class: 'btn btn-s-md btn-primary' %>
         </div>
-
         <% if @school_cycles.present? %>
-          
           <!-- Tabla -->
           <table class="table table-stripped m-b-none">
             <thead>
@@ -45,15 +41,12 @@
               <% end %>
             </tbody>
           </table>
-
         <% else %>
-          
           <!-- Alert informativo -->
           <div class="alert alert-info fade in alert-dismissable">
             <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
             <strong>Info!</strong> Aun no existen elementos en la base de datos para ser mostrados.
           </div>
-          
         <% end %>
       </section>
     </section>
