@@ -1,4 +1,5 @@
 class Teacher < ApplicationRecord
+  has_many :school_cycle_has_subjects
   validates :nombre, :presence => true
   validates :apellido_paterno, :presence => true
   validates :grado, :presence => true
