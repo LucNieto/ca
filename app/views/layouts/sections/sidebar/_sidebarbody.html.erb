@@ -34,14 +34,14 @@
             <% end %>
         </li>
         <li>
-          <a href="#" class="auto">                                                        
+          <a href="#" class="auto">
             <i class="i i-dot"></i> <span>Materias</span>
           </a>
         </li>
         <li>
-          <a href="#" class="auto">                                                        
-            <i class="i i-dot"></i> <span>Maestros</span>
-          </a>
+            <%= link_to cat_teachers_path, class: 'auto' do %>
+                <i class="i i-dot"></i> <span>Maestros</span>
+            <% end %>
         </li>
         <li>
           <a href="#" class="auto">                                                        
@@ -68,9 +68,9 @@
       </a>
       <ul class="nav dk">
         <li>
-          <a href="#" class="auto">                                                        
-            <i class="i i-dot"></i> <span>Maestro - Grupo</span>
-          </a>
+            <%= link_to asig_school_cycle_has_subjects_path, class: 'auto' do %>
+            <i class="i i-dot"></i> <span>Maestros - Grupo</span>
+          <% end %>
         </li>
         <li>
           <a href="#" class="auto">                                                        
@@ -135,7 +135,5 @@
           <% end %>
         </li>
       </ul>
-    </li>
-
   </ul>
 </nav>

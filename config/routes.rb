@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  
   devise_for :users
   root 'welcome#index'
 
@@ -18,7 +17,11 @@ Rails.application.routes.draw do
 
   namespace :cat do
     resources :school_cycles
+    resources :teachers
     resources :periods
   end
 
+  namespace :asig do
+    resources :school_cycle_has_subjects
+  end
 end

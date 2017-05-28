@@ -1,0 +1,1 @@
+json.partial! "school_cycle_has_subjects/school_cycle_has_subject", school_cycle_has_subject: @school_cycle_has_subject

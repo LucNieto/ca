@@ -28,5 +28,6 @@
 //= require calendar/demo
 //= require sortable/jquery.sortable
 //= require chosen/chosen.jquery.min
+//= require select2
 //= require turbolinks
 //= require_tree .
