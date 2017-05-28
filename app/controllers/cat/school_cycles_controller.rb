@@ -3,7 +3,7 @@ class Cat::SchoolCyclesController < ApplicationController
   before_action :set_school_cycle, only:[ :show, :edit, :update, :destroy ]
 
   def index
-    @school_cycles = SchoolCycle.all
+    @school_cycles = SchoolCycle.includes(:career).all
   end
 
   def new
