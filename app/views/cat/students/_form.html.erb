@@ -1,4 +1,5 @@
 <%= form_for( [ 'cat', @student ], html: { class: 'form-horizontal' }) do |f| %>
+    <%= render 'partials/error_messages', object: @student %>
     <div class="form-group">
       <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Matrícula</label>
       <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">

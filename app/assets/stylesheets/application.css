@@ -19,5 +19,7 @@
  *= require less/app
  *= require bootstrap_calendar
  *= require chosen
+ *= require select2
+ *= require select2-bootstrap
  *= require_self
  */

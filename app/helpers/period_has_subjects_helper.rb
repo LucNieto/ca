@@ -1,0 +1,2 @@
+module PeriodHasSubjectsHelper
+end

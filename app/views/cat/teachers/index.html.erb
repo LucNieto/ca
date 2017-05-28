@@ -1,5 +1,5 @@
 <div class="m-b-md">
-  <h3 class="m-b-none">Alumnos</h3>
+  <h3 class="m-b-none">Maestros</h3>
 </div>
 
 <div class="row">
@@ -10,43 +10,41 @@
 
       <section class="panel-body">
         <div class="row wrapper">
-          <%= link_to 'Nuevo Elemento', new_cat_student_path, class: 'btn btn-s-md btn-primary' %>
+          <%= link_to 'Nuevo Elemento', new_cat_teacher_path, class: 'btn btn-s-md btn-primary' %>
         </div>
 
-        <% if @students.present? %>
+        <% if @teachers.present? %>
 
             <!-- Tabla -->
             <table class="table table-stripped m-b-none">
               <thead>
               <tr>
                 <th width="120px" class="text-center">Opciones</th>
-                <th>Matrícula</th>
-                <th>Nombre de estudiante</th>
-                <th>Email</th>
-                <th>Teléfono</th>
+                <th>Nombre del Maestro</th>
+                <th>Correo electronico</th>
+                <th>Telefono</th>
               </tr>
               </thead>
               <tbody>
-              <% @students.each do |item| %>
+              <% @teachers.each do |teacher| %>
                   <tr>
                     <td class="text-center">
-                      <!-- Boton mostrar -->
-                      <%= link_to cat_student_path(item) do %>
+                      <!-- Boton editar -->
+                      <%= link_to cat_teacher_path(teacher) do %>
                           <i class="fa fa-eye"></i>
                       <% end %>
                       <!-- Boton editar -->
-                      <%= link_to edit_cat_student_path(item) do %>
+                      <%= link_to edit_cat_teacher_path(teacher) do %>
                           <i class="fa fa-pencil text-success"></i>
                       <% end %>
                       <!-- Boton eliminar -->
-                      <%= link_to cat_student_path(item), method: :delete, data: { confirm: '¿Estas seguro de eliminar este elemento?' } do %>
+                      <%= link_to cat_teacher_path(teacher), method: :delete, data: { confirm: 'Estas seguro de eliminar este elemento?' } do %>
                           <i class="fa fa-trash-o text-danger"></i>
                       <% end %>
                     </td>
-                    <td><%= item.matricula %></td>
-                    <td><%= item.nombre_completo %></td>
-                    <td><%= item.correo_electronico %></td>
-                    <td><%= item.telefono %></td>
+                    <td><%= teacher.nombre_completo %></td>
+                    <td><%= teacher.correo_electronico %></td>
+                    <td><%= teacher.telefono %></td>
                   </tr>
               <% end %>
               </tbody>
@@ -65,3 +63,14 @@
     </section>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+

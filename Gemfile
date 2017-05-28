@@ -19,9 +19,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
+# Add user gems
 gem 'figaro'
 gem 'devise'
 gem 'faker'
+gem "select2-rails"
 
 group :development, :test do
   gem 'byebug', platform: :mri
