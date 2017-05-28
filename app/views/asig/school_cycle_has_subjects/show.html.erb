@@ -19,12 +19,16 @@
       <table class="table table-stripped m-b-none">
         <tbody>
         <tr>
-          <th width="20%">ciclo</th>
-          <td><%= "#{@school_cycle_has_subject.school_cycle.nombre_ciclo} - #{@school_cycle_has_subject.school_cycle.career.nombre_carrera}" %></td>
+          <th width="20%">Carrera</th>
+          <td><%= @school_cycle_has_subject.school_cycle.career.nombre_carrera %></td>
+        </tr>
+        <tr>
+          <th>Ciclo Escolar</th>
+          <td><%= @school_cycle_has_subject.school_cycle.nombre_ciclo %></td>
         </tr>
         <tr>
           <th>Maestro</th>
-          <td>  <%= @school_cycle_has_subject.teacher.nombre %></td>
+          <td><%= @school_cycle_has_subject.teacher.nombre_completo %></td>
         </tr>
         <tr>
           <th>Materia</th>
@@ -32,27 +36,27 @@
         </tr>
         <tr>
           <th>Lunes</th>
-          <td><%=raw @school_cycle_has_subject.lunes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+          <td><%=raw @school_cycle_has_subject.lunes ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
         </tr>
         <tr>
           <th>Martes</th>
-          <td><%=raw @school_cycle_has_subject.martes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+          <td><%=raw @school_cycle_has_subject.martes ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
         </tr>
         <tr>
           <th>Miercoles</th>
-          <td><%=raw @school_cycle_has_subject.miercoles ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+          <td><%=raw @school_cycle_has_subject.miercoles ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
         </tr>
         <tr>
           <th>Jueves</th>
-          <td><%=raw @school_cycle_has_subject.jueves ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+          <td><%=raw @school_cycle_has_subject.jueves ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
         </tr>
         <tr>
           <th>Viernes</th>
-          <td><%=raw @school_cycle_has_subject.viernes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+          <td><%=raw @school_cycle_has_subject.viernes ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
         </tr>
         <tr>
           <th>Sabado</th>
-          <td><%=raw @school_cycle_has_subject.sabado ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+          <td><%=raw @school_cycle_has_subject.sabado ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
         </tr>
         </tbody>
       </table>

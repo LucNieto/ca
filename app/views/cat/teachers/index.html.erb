@@ -20,10 +20,7 @@
               <thead>
               <tr>
                 <th width="120px" class="text-center">Opciones</th>
-                <th>Nombre</th>
-                <th>Apellido paterno</th>
-                <th>Apellido materno</th>
-                <th>Grado</th>
+                <th>Nombre del Maestro</th>
                 <th>Correo electronico</th>
                 <th>Telefono</th>
               </tr>
@@ -45,10 +42,7 @@
                           <i class="fa fa-trash-o text-danger"></i>
                       <% end %>
                     </td>
-                    <td><%= teacher.nombre %></td>
-                    <td><%= teacher.apellido_paterno %></td>
-                    <td><%= teacher.apellido_materno %></td>
-                    <td><%= teacher.grado %></td>
+                    <td><%= teacher.nombre_completo %></td>
                     <td><%= teacher.correo_electronico %></td>
                     <td><%= teacher.telefono %></td>
                   </tr>

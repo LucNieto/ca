@@ -19,16 +19,11 @@
             <table class="table table-stripped m-b-none">
               <thead>
               <tr>
-                <th width="120px" class="text-center">Opciones</th>
+                <th width="80px" class="text-center">Opciones</th>
                 <th>Ciclo escolar</th>
                 <th>Maestro</th>
                 <th>Materia</th>
-                <th>L</th>
-                <th>Ma</th>
-                <th>Mi</th>
-                <th>J</th>
-                <th>V</th>
-                <th>S</th>
+                <th>Dias Laborales</th>
                 <th>Horario</th>
               </tr>
               </thead>
@@ -50,14 +45,20 @@
                       <% end %>
                     </td>
                     <td><%= school_cycle_has_subject.school_cycle.nombre_ciclo %></td>
-                    <td><%= school_cycle_has_subject.teacher.nombre %></td>
+                    <td><%= school_cycle_has_subject.teacher.nombre_completo %></td>
                     <td><%= school_cycle_has_subject.subject.nombre_materia %></td>
-                    <td><%=raw school_cycle_has_subject.lunes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
-                    <td><%=raw school_cycle_has_subject.martes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
-                    <td><%=raw school_cycle_has_subject.miercoles ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
-                    <td><%=raw school_cycle_has_subject.jueves ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
-                    <td><%=raw school_cycle_has_subject.viernes ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
-                    <td><%=raw school_cycle_has_subject.sabado ? '<i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i>' :  '<i class="fa fa-times" style="color:red;"></i>' %></td>
+                    <td>
+                      <% 
+                        dias_laborales = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'] 
+                        dias_maestro = ""
+                        dias_laborales.each do |dia|
+                          if school_cycle_has_subject.read_attribute("#{dia}") 
+                            dias_maestro = "#{dias_maestro}, #{dia.titleize }"
+                          end 
+                        end 
+                      %>
+                      <%= dias_maestro[1..-1] %>
+                    </td>
                     <td><%= school_cycle_has_subject.horario_clases %></td>
                   </tr>
               <% end %>
