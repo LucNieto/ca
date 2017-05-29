@@ -21,8 +21,8 @@
               <tr>
                 <th width="80px" class="text-center">Opciones</th>
                 <th>Ciclo escolar</th>
-                <th>Materia</th>
                 <th>Alumno</th>
+                <th>Materia</th>
                 <th>Dias</th>
               </tr>
               </thead>
@@ -43,20 +43,20 @@
                           <i class="fa fa-trash-o text-danger"></i>
                       <% end %>
                     </td>
-                    <td><%# item.school_cycle.nombre_ciclo %></td>
-                    <td><%# item.teacher.nombre_completo %></td>
-                    <td><%# item.subject.nombre_materia %></td>
+                    <td><%= item.school_cycle_has_subject.school_cycle.nombre_ciclo %></td>
+                    <td><%= item.student.nombre_completo %></td>
+                    <td><%= item.school_cycle_has_subject.subject.nombre_materia %></td>
                     <td>
                       <% 
-                        # dias_laborales = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'] 
-                        # dias_maestro = ""
-                        # dias_laborales.each do |dia|
-                        #   if school_cycle_has_subject.read_attribute("#{dia}") 
-                        #     dias_maestro = "#{dias_maestro}, #{dia.titleize }"
-                        #   end 
-                        # end
+                        dias_laborales = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'] 
+                        dias_maestro = ""
+                        dias_laborales.each do |dia|
+                          if item.school_cycle_has_subject.read_attribute("#{dia}") 
+                            dias_maestro = "#{dias_maestro}, #{dia[0..2].titleize }"
+                          end 
+                        end
                       %>
-                      <%# dias_maestro[1..-1] %>
+                      <%= dias_maestro[1..-1] %>
                     </td>
                   </tr>
               <% end %>

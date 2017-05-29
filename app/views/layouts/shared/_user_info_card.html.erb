@@ -1,0 +1,32 @@
+<section class="panel panel-default">
+  <div class="panel-body">
+    <div class="clearfix text-center m-t">
+      <div class="inline">
+        <div class="thumb-lg">
+          <%= image_tag "a0.png", class: 'img-circle' %>
+        </div>
+        <div class="h4 m-t m-b-xs">
+          <%= student.nombre_completo %>
+        </div>
+        <small class="text-muted m-b">
+          <%= career.nombre_carrera %>
+        </small>
+      </div>                      
+    </div>
+  </div>
+  <footer class="panel-footer bg-info text-center">
+    <div class="row pull-out">
+      <div class="col-xs-12">
+        <div class="padder-v">
+          <span class="m-b-xs h5 block text-white">
+            <i class="fa fa-envelope"></i> <%= student.correo_electronico %>
+          </span>
+          <span class="m-b-xs h5 block text-white">
+            <i class="fa fa-phone"></i> <%= student.telefono %>
+          </span>
+          <small class="text-muted">Universidad Americana de Acapulco</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>

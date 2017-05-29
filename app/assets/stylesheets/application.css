@@ -23,3 +23,8 @@
  *= require select2-bootstrap
  *= require_self
  */
+
+.panel table.noborder th{
+  padding: 8px 15px;
+  border-top: none;
+}

@@ -15,7 +15,7 @@ class Asig::StudentHasSubjectsController < ApplicationController
 
     respond_to do |format|
       if @student_has_subject.save
-        format.html { redirect_to ["asig",@student_has_subject], notice: 'La relacion alumno-materia ha sido creada' }
+        format.html { redirect_to ["asig",@student_has_subject], notice: 'La relacion alumno - materia ha sido creada' }
         format.json { render :show, status: :created, location: @student_has_subject }
       else
         format.html { render :new }
@@ -29,6 +29,26 @@ class Asig::StudentHasSubjectsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @student_has_subject.update(student_has_subject_params)
+        format.html { redirect_to ["asig",@student_has_subject], notice: 'La relacion alumno - materia ha sido actualizada' }
+        format.json { render :show, status: :ok, location: @student_has_subject }
+      else
+        format.html { render :edit }
+        format.json { render json: @student_has_subject.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @student_has_subject.destroy
+    respond_to do |format|
+      format.html { redirect_to asig_student_has_subjects_path, notice: 'La relacion entre Alumno - Materia ha sido eliminada' }
+      format.json { head :no_content }
+    end
   end
 
   # Get subjects by specific school_cycle
@@ -64,7 +84,7 @@ class Asig::StudentHasSubjectsController < ApplicationController
 
   private
     def set_student_has_subject
-      @student_has_subject = StudentHasSubject.find(params[:id])
+      @student_has_subject = StudentHasSubject.includes(:student, :school_cycle_has_subject).find(params[:id])
     end
 
     def student_has_subject_params
