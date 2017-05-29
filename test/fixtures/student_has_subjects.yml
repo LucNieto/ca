@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school_cycle_has_subject: one
+  student: one
+  student_type: 1
+
+two:
+  school_cycle_has_subject: two
+  student: two
+  student_type: 1

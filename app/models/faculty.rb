@@ -1,3 +1,3 @@
 class Faculty < ApplicationRecord
-  has_many :careers
+  has_many :careers, dependent: :destroy
 end

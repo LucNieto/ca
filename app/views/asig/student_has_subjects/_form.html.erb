@@ -1,0 +1,37 @@
+<%= form_for(['asig',@student_has_subject], html: { class: 'form-horizontal' }) do |f| %>
+    <%# render 'partials/error_messages', object: @student_has_subject %>
+    
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Estudiante</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :student_id, Student.all.map{ |s| [ s.nombre_completo, s.id ]}, { prompt: '- Seleccionar -' }, class: 'form-control select2'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Tipo Estudiante</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :student_type, StudentHasSubject.student_types.keys.to_a, {}, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Ciclo Escolar</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :school_cycle, SchoolCycle.all.order(created_at: :desc).map{ |sc| ["#{sc.nombre_ciclo} - #{sc.career.nombre_carrera}", sc.id]}, { prompt: '- Seleccionar -' }, class: 'form-control select2'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Materia</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :subject, {}, { prompt: '- Seleccionar -' }, class: 'form-control select2'  %>
+        <%= f.hidden_field :school_cycle_has_subject_id %>
+      </div>
+    </div>
+
+    <div class="pull-right">
+      <%= f.submit nil, class: 'btn btn-sm btn-primary' %>
+    </div>
+    <div class="clearfix"></div>
+<% end %>

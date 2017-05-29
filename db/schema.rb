@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526202227) do
+ActiveRecord::Schema.define(version: 20170528235126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,16 @@ ActiveRecord::Schema.define(version: 20170526202227) do
     t.index ["career_id"], name: "index_school_cycles_on_career_id", using: :btree
   end
 
+  create_table "student_has_subjects", force: :cascade do |t|
+    t.integer  "school_cycle_has_subject_id"
+    t.integer  "student_id"
+    t.integer  "student_type"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["school_cycle_has_subject_id"], name: "index_student_has_subjects_on_school_cycle_has_subject_id", using: :btree
+    t.index ["student_id"], name: "index_student_has_subjects_on_student_id", using: :btree
+  end
+
   create_table "students", force: :cascade do |t|
     t.string   "matricula"
     t.string   "nombre"
@@ -155,5 +165,7 @@ ActiveRecord::Schema.define(version: 20170526202227) do
   add_foreign_key "school_cycle_has_subjects", "subjects"
   add_foreign_key "school_cycle_has_subjects", "teachers"
   add_foreign_key "school_cycles", "careers"
+  add_foreign_key "student_has_subjects", "school_cycle_has_subjects"
+  add_foreign_key "student_has_subjects", "students"
   add_foreign_key "subjects", "groups"
 end

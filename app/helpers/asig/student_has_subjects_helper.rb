@@ -1,0 +1,2 @@
+module Asig::StudentHasSubjectsHelper
+end
