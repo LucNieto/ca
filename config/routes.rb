@@ -24,5 +24,11 @@ Rails.application.routes.draw do
 
   namespace :asig do
     resources :school_cycle_has_subjects
+    resources :student_has_subjects do
+      collection do
+        get 'get_subjects'
+        get 'get_group'
+      end
+    end
   end
 end

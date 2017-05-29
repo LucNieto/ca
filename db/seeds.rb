@@ -62,3 +62,12 @@ Subject.create!(group_id: 5,nombre_materia: 'Ingenieria de Software', subject_ty
 Subject.create!(group_id: 6,nombre_materia: 'Lenguajes de Programación', subject_type: 0, clave_materia: '1671')
 Subject.create!(group_id: 6,nombre_materia: 'Lenguajes y Automatas', subject_type: 0, clave_materia: '1670')
 Subject.create!(group_id: 9,nombre_materia: 'Computo de alto desempeño', subject_type: 0, clave_materia: '0676')
+
+# Creando grupos para administración
+grupos = [ '1020', '2020', '3020', '4020', '5020', '6020', '7020', '8020', '9020' ]
+grupos.each do |g|
+  Group.create!(clave_grupo: g)
+end
+
+Subject.create!(group_id: 10,nombre_materia: 'Administración basica', subject_type: 0, clave_materia: '1176')
+Subject.create!(group_id: 10,nombre_materia: 'La actividad empresarial', subject_type: 0, clave_materia: '1177')

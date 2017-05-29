@@ -1,0 +1,88 @@
+<h3 class="m-b-none pull-left">Información Alumno - Matería</h3>
+<div class="row wrapper pull-right">
+    <%= link_to '<i class="fa fa-chevron-left"></i>'.html_safe, asig_student_has_subjects_path, class: 'btn btn-sm btn-icon btn-default' %>
+    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_asig_student_has_subject_path(@student_has_subject), class: 'btn btn-sm btn-icon btn-success' %>
+    <%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_asig_student_has_subject_path, class: 'btn btn-sm btn-icon btn-primary' %>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, asig_student_has_subject_path(@student_has_subject), method: :delete, data: { confirm: 'Estas seguro de eliminar este elemento?' }, class: 'btn btn-sm btn-icon btn-danger' %>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+      
+    <div class="row">
+      
+      <!-- Parte izquierda -->
+      <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6">
+        <%= render 'layouts/shared/user_info_card', student: @student_has_subject.student, career: @student_has_subject.school_cycle_has_subject.school_cycle.career %>
+      </div>
+
+      <!-- Parte derecha -->
+      <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">Información</header>
+          <table class="table table-stripped m-b-none">
+            <tbody>
+              <tr>
+                <th width="18%">Ciclo Escolar</th>
+                <td colspan="3"><%= @student_has_subject.school_cycle_has_subject.school_cycle.nombre_ciclo %></td>
+                <th>Cursa</th>
+                <td><%= @student_has_subject.student_type %></td>
+              </tr>
+              <tr>
+                <th>Materia</th>
+                <td><%= @student_has_subject.school_cycle_has_subject.subject.nombre_materia %></td>
+                <th>Clave</th>
+                <td><%= @student_has_subject.school_cycle_has_subject.subject.clave_materia %></td>
+                <th>Tipo</th>
+                <td><%= @student_has_subject.school_cycle_has_subject.subject.subject_type %></td>
+              </tr>
+              <tr>
+                <th>Maestro</th>
+                <td colspan="5"><%= @student_has_subject.school_cycle_has_subject.teacher.nombre_completo %></td>
+              </tr>
+              <tr>
+                <th>Dias de Clase</th>
+                <td colspan="5">
+                  
+                  <table class="noborder">
+                    <thead>
+                      <tr>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miercoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                        <th>Sabado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center"><%=raw @student_has_subject.school_cycle_has_subject.lunes ? '<i class="fa fa-check-circle tex class="text-center"t-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
+                        <td class="text-center"><%=raw @student_has_subject.school_cycle_has_subject.martes ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
+                        <td class="text-center"><%=raw @student_has_subject.school_cycle_has_subject.miercoles ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
+                        <td class="text-center"><%=raw @student_has_subject.school_cycle_has_subject.jueves ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
+                        <td class="text-center"><%=raw @student_has_subject.school_cycle_has_subject.viernes ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
+                        <td class="text-center"><%=raw @student_has_subject.school_cycle_has_subject.sabado ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                </td>
+              </tr>
+              <tr>
+                <th>Horario</th>
+                <td colspan="5"><%= @student_has_subject.school_cycle_has_subject.horario_clases %></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </section>
+      </div>
+
+    </div>
+
+  </div>
+</div>
