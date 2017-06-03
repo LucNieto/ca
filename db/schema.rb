@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528235126) do
+ActiveRecord::Schema.define(version: 20170603025738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,12 @@ ActiveRecord::Schema.define(version: 20170528235126) do
   end
 
   create_table "attendances", force: :cascade do |t|
+    t.integer  "student_has_subject_id"
     t.string   "attendance_type"
-    t.string   "fecha_asistencia"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.date     "fecha_asistencia"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["student_has_subject_id"], name: "index_attendances_on_student_has_subject_id", using: :btree
   end
 
   create_table "careers", force: :cascade do |t|
@@ -160,6 +162,7 @@ ActiveRecord::Schema.define(version: 20170528235126) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "attendances", "student_has_subjects"
   add_foreign_key "careers", "faculties"
   add_foreign_key "periods", "school_cycles"
   add_foreign_key "school_cycle_has_subjects", "school_cycles"

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
   root 'welcome#index'
 
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
     resources :school_cycles
     resources :teachers
     resources :periods
+  end
+
+  namespace :asis do
+    resources :attendances
   end
 
   namespace :asig do
