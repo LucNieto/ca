@@ -5,7 +5,7 @@
     <div class="form-group">
       <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Alumno</label>
       <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
-        <%= f.select :student_has_subject_id, StudentHasSubject.all.map { |c| [c.student.matricula, c.id] },{ prompt: '- Seleccionar -' }, class: 'form-control' %>
+        <%= f.select :student_has_subject_id, StudentHasSubject.all.map { |c| ["#{c.student.matricula} - #{c.student.nombre}", c.id] },{ prompt: '- Seleccionar -' }, class: 'form-control' %>
       </div>
     </div>
 
@@ -20,7 +20,7 @@
     <div class="form-group">
       <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Tipo de asistencia</label>
       <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
-        <%= f.select :attendance_type, Attendance.attendance_types.keys.to_a, { prompt: '- Seleccionar -' }, class: 'form-control' %>
+        <%= f.select :attendance_type, Attendance.attendance_types.keys.to_a, { prompt: '- Seleccionar -' }, :class => 'form-control' %>
       </div>
     </div>
 

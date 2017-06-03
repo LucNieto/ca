@@ -17,13 +17,18 @@
         </div>
         <div class="clearfix"></div>
       </div>
-
       <table class="table table-stripped m-b-none">
         <tbody>
         <tr>
-          <th width="20%">Materia</th>
-          <td><%= @attendance.student_has_subject.school_cycle_has_subject.nombre_materia %></td>
+          <th width="20%">Alumno</th>
+          <td><%= @attendance.student_has_subject.student.matricula %></td>
         </tr>
+
+        <tr>
+          <th width="20%">Materia</th>
+          <td><%= @attendance.student_has_subject.school_cycle_has_subject.subject.nombre_materia %></td>
+        </tr>
+
         <tr>
           <th>Tipo de asistencia</th>
           <td><%= @attendance.attendance_type %></td>
