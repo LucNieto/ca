@@ -27,7 +27,9 @@ before_action :set_attendance, only: [:show, :edit, :update, :destroy]
   def create
     @attendance = Attendance.new(attendance_params)
 
+
     respond_to do |format|
+        #binding.pry
       if @attendance.save
         format.html { redirect_to ["asis",@attendance], notice: 'La asistenca ha sido registrada.' }
         format.json { render :show, status: :created, location: @attendance }
