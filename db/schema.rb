@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170604031902) do
   create_table "grades", force: :cascade do |t|
     t.integer  "student_has_subject_id"
     t.boolean  "aplicar_parcial"
-    t.string   "grade_type"
+    t.integer  "grade_type"
     t.float    "calificacion"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
