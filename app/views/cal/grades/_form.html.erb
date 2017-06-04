@@ -1,0 +1,43 @@
+<%= form_for( [ 'cal', @grade ], html: { class: 'form-horizontal' }) do |f| %>
+    <%= render 'partials/error_messages', object: @grade %>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Materia</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :student_has_subject_id, StudentHasSubject.all.map { |c| [c.school_cycle_has_subject.subject.nombre_materia, c.id] },{ prompt: '- Seleccionar -' }, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Alumno</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :student_has_subject_id, StudentHasSubject.all.map { |c| ["#{c.student.matricula} - #{c.student.nombre}", c.id] },{ prompt: '- Seleccionar -' }, class: 'form-control' %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Tipo de evaluación</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.select :grade_type, Grade.grade_types.keys.to_a, { prompt: '- Seleccionar -' }, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Calificación</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <%= f.text_field :calificacion, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Aplicar parcial</label>
+      <%= f.check_box :aplicar_parcial %>
+    </div>
+    </div>
+
+    <div class="pull-right">
+      <%= f.submit nil, class: 'btn btn-sm btn-primary' %>
+    </div>
+    <div class="clearfix"></div>
+<% end %>
