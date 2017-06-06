@@ -2,16 +2,25 @@
     <%= render 'partials/error_messages', object: @grade %>
 
     <div class="form-group">
-      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Materia</label>
-      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
-        <%= f.select :student_has_subject_id, StudentHasSubject.all.map { |c| [c.school_cycle_has_subject.subject.nombre_materia, c.id] },{ prompt: '- Seleccionar -' }, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="form-group">
       <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Alumno</label>
       <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
-        <%= f.select :student_has_subject_id, StudentHasSubject.all.map { |c| ["#{c.student.matricula} - #{c.student.nombre}", c.id] },{ prompt: '- Seleccionar -' }, class: 'form-control' %>
+        <% if @grade.new_record? %>
+          <%= f.select :student, Student.all.map { |c| [c.nombre_completo, c.id] },{ prompt: '- Seleccionar -' }, class: 'form-control' %>
+        <% else %>
+          <%= f.select :student, Student.all.order(created_at: :desc).map{ |s| [s.nombre_completo, s.id]}, { prompt: '- Seleccionar -', selected: @grade.student_has_subject.student_id }, class: 'form-control select2'  %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Materia</label>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <% if @grade.new_record? %>
+          <%= f.select :subject, {},{ prompt: '- Seleccionar -' }, class: 'form-control' %>
+        <% else %>
+          <%= f.select :subject, Subject.joins("INNER JOIN school_cycle_has_subjects ON subjects.id = school_cycle_has_subjects.subject_id INNER JOIN student_has_subjects ON school_cycle_has_subjects.id = student_has_subjects.school_cycle_has_subject_id").where("student_id = ?", @grade.student_has_subject.student_id).map{ |s| [s.nombre_materia, s.id] }, { prompt: '- Seleccionar -', selected: @grade.student_has_subject.student_id }, class: 'form-control select2'  %>     
+        <% end %>
+        <%= f.hidden_field :student_has_subject_id %>
       </div>
     </div>
 
@@ -32,8 +41,14 @@
 
     <div class="form-group">
       <label class="col-lg-2 col-md-4 col-sm-4 col-xs-6 control-label">Aplicar parcial</label>
-      <%= f.check_box :aplicar_parcial %>
-    </div>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-xs-6">
+        <div class="checkbox i-checks">
+          <label>
+            <%= f.check_box :aplicar_parcial %><i></i>
+            <!-- <input type="checkbox" checked=""><i></i> Remember me -->
+          </label>
+        </div>
+      </div>
     </div>
 
     <div class="pull-right">

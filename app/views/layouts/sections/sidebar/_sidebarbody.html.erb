@@ -75,7 +75,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to asig_student_has_subjects_path, class: 'auto' do %>                          
+          <%= link_to asig_student_has_subjects_path, class: 'auto' do %>
             <i class="i i-dot"></i> <span>Grupo - Alumno</span>
           <% end %>
         </li>
@@ -84,11 +84,9 @@
     
     <!-- Calificaciones -->
     <li>
-      <a href="index.html" class="auto">
-        <i class="i i-tag icon">
-        </i>
-        <span class="font-bold">Calificaciones</span>
-      </a>
+      <%= link_to cal_grades_path, class: 'auto' do %>
+        <i class="i i-tag icon"></i><span class="font-bold">Calificaciones</span>
+      <% end %>
     </li>
 
     <!-- Asistencia -->
