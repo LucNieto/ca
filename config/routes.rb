@@ -14,6 +14,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :cal do
+    resources :grades do
+      collection do
+        get 'get_subjects'
+        get 'get_group'
+      end
+    end
+  end
+
+
   resources :interface, only: [:index]
 
   namespace :cat do
