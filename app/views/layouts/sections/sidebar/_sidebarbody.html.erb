@@ -84,27 +84,10 @@
     
     <!-- Calificaciones -->
 
-
     <li>
-      <a href="#" class="auto">
-        <span class="pull-right text-muted">
-          <i class="i i-circle-sm-o text"></i>
-          <i class="i i-circle-sm text-active"></i>
-        </span>
-        <i class="i i-tag icon"></i><span class="font-bold">Calificaciones</span>
-      </a>
-      <ul class="nav dk">
-        <li>
-          <%= link_to cal_grades_path, class: 'auto' do %>
-              <i class="i i-dot"></i> <span>Llenado de calificaciones</span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to cal_grades_path class: 'auto' do %>
-              <i class="i i-dot"></i> <span>Reportes</span>
-          <% end %>
-        </li>
-      </ul>
+      <%= link_to cal_grades_path, class: 'auto' do %>
+      <i class="i i-tag icon"></i><span class="font-bold">Calificaciones</span>
+    <% end %>
     </li>
 
     <!-- Asistencia -->
@@ -116,6 +99,31 @@
       </a>
     </li>
     
+    <!-- Reportes -->
+    <li>
+      <a href="#" class="auto">
+        <span class="pull-right text-muted">
+          <i class="i i-circle-sm-o text"></i>
+          <i class="i i-circle-sm text-active"></i>
+        </span>
+        <i class="i i-file-openoffice icon"></i>
+        <span class="font-bold">Reportes</span>
+      </a>
+      <ul class="nav dk">
+        <li>
+          <%= link_to root_path do %>
+            <i class="i i-dot"></i> <span>Reporte de Calificaciones</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_path do %>
+            <i class="i i-dot"></i> <span>Reporte de Asistencias</span>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+
+
     <!-- Template -->
     <li>
       <a href="#" class="auto">

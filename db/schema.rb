@@ -46,6 +46,24 @@ ActiveRecord::Schema.define(version: 20170604031902) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "period_has_subjects", force: :cascade do |t|
+    t.integer  "period_id"
+    t.integer  "teacher_id"
+    t.integer  "subject_id"
+    t.boolean  "lunes"
+    t.boolean  "martes"
+    t.boolean  "miercoles"
+    t.boolean  "jueves"
+    t.boolean  "viernes"
+    t.boolean  "sabado"
+    t.string   "horario_clases"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["period_id"], name: "index_period_has_subjects_on_period_id", using: :btree
+    t.index ["subject_id"], name: "index_period_has_subjects_on_subject_id", using: :btree
+    t.index ["teacher_id"], name: "index_period_has_subjects_on_teacher_id", using: :btree
+  end
+
   create_table "periods", force: :cascade do |t|
     t.integer  "school_cycle_id"
     t.string   "nombre_periodo"
@@ -79,14 +97,6 @@ ActiveRecord::Schema.define(version: 20170604031902) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["career_id"], name: "index_school_cycles_on_career_id", using: :btree
-  end
-
-  create_table "scores", force: :cascade do |t|
-    t.boolean  "aplicar_parcial"
-    t.string   "score_type"
-    t.float    "calificacion"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
   create_table "student_has_subjects", force: :cascade do |t|
@@ -158,6 +168,9 @@ ActiveRecord::Schema.define(version: 20170604031902) do
 
   add_foreign_key "careers", "faculties"
   add_foreign_key "grades", "student_has_subjects"
+  add_foreign_key "period_has_subjects", "periods"
+  add_foreign_key "period_has_subjects", "subjects"
+  add_foreign_key "period_has_subjects", "teachers"
   add_foreign_key "periods", "school_cycles"
   add_foreign_key "school_cycle_has_subjects", "school_cycles"
   add_foreign_key "school_cycle_has_subjects", "subjects"
