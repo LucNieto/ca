@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_has_subject: one
+  aplicar_parcial: false
+  grade_type: MyString
+  calificacion: 1.5
+
+two:
+  student_has_subject: two
+  aplicar_parcial: false
+  grade_type: MyString
+  calificacion: 1.5

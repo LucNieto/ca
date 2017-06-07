@@ -56,7 +56,7 @@ class Cat::StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to cat_students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to cat_students_path, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

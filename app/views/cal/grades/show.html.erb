@@ -1,0 +1,66 @@
+<h3 class="m-b-none pull-left">Evaluaciones</h3>
+
+  <div class="row wrapper pull-right">
+    <%= link_to '<i class="fa fa-chevron-left"></i>'.html_safe, cal_grades_path, class: 'btn btn-sm btn-icon btn-default' %>
+    <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_cal_grade_path(@grade), class: 'btn btn-sm btn-icon btn-success' %>
+    <%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_cal_grade_path, class: 'btn btn-sm btn-icon btn-primary' %>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, cal_grade_path(@grade), method: :delete, data: { confirm: 'Estas seguro de eliminar este elemento?' }, class: 'btn btn-sm btn-icon btn-danger' %>
+  </div>
+  <div class="clearfix"></div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+
+      <div class="row">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+
+              <!-- Parte izquierda -->
+              <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6">
+                <%= render 'layouts/shared/alumno_batch', student: @grade.student_has_subject.student, career: @grade.student_has_subject.school_cycle_has_subject.school_cycle.career,type: @grade.student_has_subject %>
+              </div>
+
+              <!-- Parte derecha -->
+              <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6">
+                <!-- section tabla -->
+                <section class="panel panel-default">
+                  <header class="panel-heading">Información</header>
+                  <table class="table table-stripped m-b-none">
+                    <tbody>
+                    <tr>
+                      <th width="20%" class="titu">Materia</th>
+                      <td><%= @grade.student_has_subject.school_cycle_has_subject.subject.nombre_materia %></td>
+                    </tr>
+                    <tr>
+                      <th class="titu">Matrícula</th>
+                      <td><%= @grade.student_has_subject.student.matricula %></td>
+                    </tr>
+                    <tr>
+                      <th class="titu">Aplicar parcial</th>
+                      <td><%=raw @grade.aplicar_parcial ? '<i class="fa fa-check-circle text-success"></i>' :  '<i class="fa fa-times text-danger"></i>' %></td>
+                    </tr>
+                    <tr>
+                      <th class="titu">Tipo de evaluación</th>
+                      <td><%= @grade.grade_type %></td>
+                    </tr>
+                    <tr>
+                      <th class="titu">Calificación</th>
+                      <td><%= @grade.calificacion %></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </div>
+              </div>
+           </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
