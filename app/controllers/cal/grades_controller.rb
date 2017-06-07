@@ -56,7 +56,7 @@ class Cal::GradesController < ApplicationController
   def destroy
     @grade.destroy
     respond_to do |format|
-      format.html { redirect_to cal_grade_path, notice: 'Grade was successfully destroyed.' }
+      format.html { redirect_to cal_grades_path, notice: 'La calificación ha sido eliminada' }
       format.json { head :no_content }
     end
   end

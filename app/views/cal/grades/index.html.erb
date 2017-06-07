@@ -16,9 +16,8 @@
               <thead>
               <tr>
                 <th width="120px" class="text-center">Opciones</th>
-                <th>Materia</th>
                 <th>Alumno</th>
-                <th>Aplicar parcial</th>
+                <th>Materia</th>
                 <th>Tipo de evaluación</th>
                 <th>Calificación</th>
               </tr>
@@ -40,9 +39,8 @@
                           <i class="fa fa-trash-o text-danger"></i>
                       <% end %>
                     </td>
+                    <td><%= item.student_has_subject.student.nombre_completo %></td>
                     <td><%= item.student_has_subject.school_cycle_has_subject.subject.nombre_materia %></td>
-                    <td><%= "#{item.student_has_subject.student.matricula} - #{item.student_has_subject.student.nombre}" %></td>
-                    <td><%= item.aplicar_parcial %></td>
                     <td><%= item.grade_type %></td>
                     <td><%= item.calificacion %></td>
                   </tr>

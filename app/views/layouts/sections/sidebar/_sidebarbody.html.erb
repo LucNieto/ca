@@ -83,10 +83,28 @@
     </li>
     
     <!-- Calificaciones -->
+
+
     <li>
-      <%= link_to cal_grades_path, class: 'auto' do %>
+      <a href="#" class="auto">
+        <span class="pull-right text-muted">
+          <i class="i i-circle-sm-o text"></i>
+          <i class="i i-circle-sm text-active"></i>
+        </span>
         <i class="i i-tag icon"></i><span class="font-bold">Calificaciones</span>
-      <% end %>
+      </a>
+      <ul class="nav dk">
+        <li>
+          <%= link_to cal_grades_path, class: 'auto' do %>
+              <i class="i i-dot"></i> <span>Llenado de calificaciones</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to cal_grades_path class: 'auto' do %>
+              <i class="i i-dot"></i> <span>Reportes</span>
+          <% end %>
+        </li>
+      </ul>
     </li>
 
     <!-- Asistencia -->

@@ -1,0 +1,32 @@
+<section class="panel panel-default">
+  <header class="panel-heading bg-light no-border">
+    <div class="clearfix">
+      <a href="#" class="pull-left thumb-md avatar b-3x m-r">
+        <%= image_tag "a1.png" %>
+      </a>
+      <div class="clear">
+        <div class="h3 m-t-xs m-b-xs">
+          <%= student.nombre_completo %>
+        </div>
+        <small class="fa fa-circle text-danger pull-left text-xs m-t-sm"><%= type.student_type %></small>
+      </div>
+    </div>
+  </header>
+  <div class="list-group no-radius alt">
+    <a class="list-group-item">
+      <span class="badge bg-success"><%= student.telefono %></span>
+      <i class="fa fa-phone icon-muted"></i>
+     Teléfono:
+    </a>
+    <a class="list-group-item">
+      <span class="badge bg-info"><%= student.correo_electronico %></span>
+      <i class="fa fa-envelope icon-muted"></i>
+      Email:
+    </a>
+    <a class="list-group-item" >
+      <span class="badge bg-light"><%= career.nombre_carrera %></span>
+      <i class="fa fa-briefcase icon-muted"></i>
+      Carrera:
+    </a>
+  </div>
+</section>
