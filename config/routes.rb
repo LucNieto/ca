@@ -34,7 +34,12 @@ Rails.application.routes.draw do
   end
 
   namespace :asis do
-    resources :attendances
+    resources :attendances do
+      collection do
+        get 'get_subjects'
+        get 'get_group'
+      end
+    end
   end
 
   namespace :asig do

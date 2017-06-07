@@ -39,7 +39,7 @@
                           <i class="fa fa-trash-o text-danger"></i>
                       <% end %>
                     </td>
-                    <td><%= "#{item.student_has_subject.student.matricula} - #{item.student_has_subject.student.nombre}" %></td>
+                    <td><%= item.student_has_subject.student.nombre_completo %></td>
                     <td><%= item.student_has_subject.school_cycle_has_subject.subject.nombre_materia %></td>
                     <td><%= item.attendance_type %></td>
                     <td><%= item.fecha_asistencia %></td>

@@ -92,28 +92,10 @@
 
     <!-- Asistencia -->
     <li>
-      <a href="#" class="auto">
-        <span class="pull-right text-muted">
-          <i class="i i-circle-sm-o text"></i>
-          <i class="i i-circle-sm text-active"></i>
-        </span>
-        <i class="i i-retweet icon"></i>
-        <span class="font-bold">Asistencias</span>
-      </a>
-      <ul class="nav dk">
-        <li>
-          <%= link_to asis_attendances_path, class: 'auto' do %>
-              <i class="i i-dot"></i> <span>Llenado - asistencia</span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to asis_attendances_path, class: 'auto' do %>
-              <i class="i i-dot"></i> <span>Reporte - asistencia</span>
-          <% end %>
-        </li>
-      </ul>
+      <%= link_to asis_attendances_path, class: 'auto' do %>
+          <i class="i i-tag icon"></i><span class="font-bold">Asistencias</span>
+      <% end %>
     </li>
-
 
     <!-- Reportes -->
     <li>
