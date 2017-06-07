@@ -15,16 +15,9 @@ ActiveRecord::Schema.define(version: 20170603025738) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attendancedes", force: :cascade do |t|
-    t.string   "attendance_type"
-    t.string   "fecha_asistencia"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
   create_table "attendances", force: :cascade do |t|
     t.integer  "student_has_subject_id"
-    t.string   "attendance_type"
+    t.integer  "attendance_type"
     t.date     "fecha_asistencia"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -85,14 +78,6 @@ ActiveRecord::Schema.define(version: 20170603025738) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["career_id"], name: "index_school_cycles_on_career_id", using: :btree
-  end
-
-  create_table "scores", force: :cascade do |t|
-    t.boolean  "aplicar_parcial"
-    t.string   "score_type"
-    t.float    "calificacion"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
   create_table "student_has_subjects", force: :cascade do |t|
