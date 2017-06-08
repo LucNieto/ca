@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
   root 'welcome#index'
 
@@ -12,6 +13,15 @@ Rails.application.routes.draw do
       get 'buttons'
     end
   end
+  namespace :cal do
+    resources :grades do
+      collection do
+        get 'get_subjects'
+        get 'get_group'
+      end
+    end
+  end
+
 
   resources :interface, only: [:index]
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528235126) do
+ActiveRecord::Schema.define(version: 20170604031902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20170528235126) do
     t.string   "nombre_facultad"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.integer  "student_has_subject_id"
+    t.boolean  "aplicar_parcial"
+    t.integer  "grade_type"
+    t.float    "calificacion"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["student_has_subject_id"], name: "index_grades_on_student_has_subject_id", using: :btree
   end
 
   create_table "groups", force: :cascade do |t|
@@ -157,6 +167,7 @@ ActiveRecord::Schema.define(version: 20170528235126) do
   end
 
   add_foreign_key "careers", "faculties"
+  add_foreign_key "grades", "student_has_subjects"
   add_foreign_key "period_has_subjects", "periods"
   add_foreign_key "period_has_subjects", "subjects"
   add_foreign_key "period_has_subjects", "teachers"
