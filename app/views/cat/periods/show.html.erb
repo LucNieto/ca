@@ -28,7 +28,7 @@
         </tr>
         <tr>
           <th>Ciclo Escolar</th>
-          <td><%= @period.school_cycle.nombre_ciclo  %></td>
+          <td><%= "#{@period.school_cycle.nombre_ciclo} - #{@period.school_cycle.career.nombre_carrera}" %></td>
         </tr>
         </tbody>
       </table>

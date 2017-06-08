@@ -92,13 +92,11 @@
 
     <!-- Asistencia -->
     <li>
-      <a href="index.html" class="auto">
-        <i class="i i-list icon">
-        </i>
-        <span class="font-bold">Asistencia</span>
-      </a>
+      <%= link_to asis_attendances_path, class: 'auto' do %>
+          <i class="i i-tag icon"></i><span class="font-bold">Asistencias</span>
+      <% end %>
     </li>
-    
+
     <!-- Reportes -->
     <li>
       <a href="#" class="auto">

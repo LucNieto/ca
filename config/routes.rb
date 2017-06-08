@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'buttons'
     end
   end
+
   namespace :cal do
     resources :grades do
       collection do
@@ -30,6 +31,15 @@ Rails.application.routes.draw do
     resources :school_cycles
     resources :teachers
     resources :periods
+  end
+
+  namespace :asis do
+    resources :attendances do
+      collection do
+        get 'get_subjects'
+        get 'get_group'
+      end
+    end
   end
 
   namespace :asig do

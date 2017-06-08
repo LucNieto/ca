@@ -40,7 +40,7 @@
                     <i class="fa fa-trash-o text-danger"></i>
                   <% end %>
                   </td>
-                  <td><%= period.school_cycle.nombre_ciclo %></td>
+                  <td><%=  "#{period.school_cycle.nombre_ciclo} - #{period.school_cycle.career.nombre_carrera}" %></td>
                   <td><%= period.nombre_periodo %></td>
                   <td><%= period.period_type %></td>
                 </tr>

@@ -15,6 +15,15 @@ ActiveRecord::Schema.define(version: 20170604031902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "student_has_subject_id"
+    t.integer  "attendance_type"
+    t.date     "fecha_asistencia"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["student_has_subject_id"], name: "index_attendances_on_student_has_subject_id", using: :btree
+  end
+
   create_table "careers", force: :cascade do |t|
     t.integer  "faculty_id"
     t.string   "nombre_carrera"
@@ -44,24 +53,6 @@ ActiveRecord::Schema.define(version: 20170604031902) do
     t.string   "clave_grupo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "period_has_subjects", force: :cascade do |t|
-    t.integer  "period_id"
-    t.integer  "teacher_id"
-    t.integer  "subject_id"
-    t.boolean  "lunes"
-    t.boolean  "martes"
-    t.boolean  "miercoles"
-    t.boolean  "jueves"
-    t.boolean  "viernes"
-    t.boolean  "sabado"
-    t.string   "horario_clases"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["period_id"], name: "index_period_has_subjects_on_period_id", using: :btree
-    t.index ["subject_id"], name: "index_period_has_subjects_on_subject_id", using: :btree
-    t.index ["teacher_id"], name: "index_period_has_subjects_on_teacher_id", using: :btree
   end
 
   create_table "periods", force: :cascade do |t|
@@ -166,11 +157,9 @@ ActiveRecord::Schema.define(version: 20170604031902) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "attendances", "student_has_subjects"
   add_foreign_key "careers", "faculties"
   add_foreign_key "grades", "student_has_subjects"
-  add_foreign_key "period_has_subjects", "periods"
-  add_foreign_key "period_has_subjects", "subjects"
-  add_foreign_key "period_has_subjects", "teachers"
   add_foreign_key "periods", "school_cycles"
   add_foreign_key "school_cycle_has_subjects", "school_cycles"
   add_foreign_key "school_cycle_has_subjects", "subjects"
