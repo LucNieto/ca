@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Alumno</Data></Cell>
+        <Cell><Data ss:Type="String">Materia</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo de evaluacion</Data></Cell>
+        <Cell><Data ss:Type="String">Calificacion</Data></Cell>
+      </Row>
+      <% @grades.each do |item| %>
+          <Row>
+            <Cell><Data ss:Type="String"><%=  item.student_has_subject.student.nombre_completo  %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= item.student_has_subject.school_cycle_has_subject.subject.nombre_materia %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= item.grade_type%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= item.calificacion %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

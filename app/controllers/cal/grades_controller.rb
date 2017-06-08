@@ -5,6 +5,14 @@ class Cal::GradesController < ApplicationController
   # GET /grades.json
   def index
     @grades = Grade.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @grades.to_csv }
+      format.xls { send_data @grades.to_csv(col_sep: "\t") }
+      format.pdf { render pdf: generate_pdf(@grades) }
+    end
+
   end
 
   # GET /grades/1

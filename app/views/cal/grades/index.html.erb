@@ -47,6 +47,11 @@
               <% end %>
               </tbody>
             </table>
+            <p>
+              Descargar:
+              <%= link_to "CSV", cal_grades_path(format: "csv") %> |
+              <%= link_to "EXCEL", cal_grades_path(format: "xls") %> |
+            </p>
         <% else %>
             <!-- Alert informativo -->
             <div class="alert alert-info fade in alert-dismissable">
