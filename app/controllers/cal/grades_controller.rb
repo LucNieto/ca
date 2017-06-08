@@ -9,8 +9,7 @@ class Cal::GradesController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @grades.to_csv }
-      format.xls { send_data @grades.to_csv(col_sep: "\t") }
-      format.pdf { render pdf: generate_pdf(@grades) }
+      format.xls
     end
 
   end

@@ -48,14 +48,14 @@
               </tbody>
             </table>
             <p>
-              Descargar:
-              <%= link_to "CSV", cal_grades_path(format: "csv") %> |
-              <%= link_to "EXCEL", cal_grades_path(format: "xls") %> |
+              <%= link_to  cal_grades_path(format: "xls") do %>
+                  <i class="fa fa-file" > Descargar</i>
+              <% end %>
             </p>
         <% else %>
             <!-- Alert informativo -->
             <div class="alert alert-info fade in alert-dismissable">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+              <a class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
               <strong>Info!</strong> Aun no existen elementos en la base de datos para ser mostrados.
             </div>
         <% end %>
